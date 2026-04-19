@@ -1,5 +1,5 @@
-create database zomato2;
-use zomato2;
+create database zomato41;
+use zomato41;
 
 create table users(
 user_id int primary key,
@@ -18,6 +18,11 @@ insert into users values
 (4,'neha','9001110004','neha@outlook.com','bangalore','active','2024-01-12'),
 (5,'karthik','9001110005','karthik@outlook.com','mysore','active','2024-01-15');
 
+update users set city='mysore' where user_id=1;
+update users set user_status='inactive' where user_id=2;
+
+select * from users;
+
 create table orders(
 order_id int primary key,
 user_id int unique,
@@ -34,6 +39,11 @@ insert into orders values
 (103,3,'biryani',300,'2024-03-03',4.8),
 (104,4,'dosa',150,'2024-03-04',4.1),
 (105,5,'fried rice',250,'2024-03-05',4.6);
+
+update orders set amount=550 where order_id=101;
+update orders set rating=4.9 where order_id=103;
+
+select * from orders;
 
 create table delivery_users(
 delivery_id int primary key,
@@ -52,6 +62,11 @@ insert into delivery_users values
 (4,'manju',24,'female','8001110004','bangalore','2024-01-04'),
 (5,'kavya',23,'female','8001110005','mysore','2024-01-05');
 
+update delivery_users set age=26 where delivery_id=1;
+update delivery_users set area='mandya' where delivery_id=2;
+
+select * from delivery_users;
+
 create table delivery_details(
 delivery_id int,
 order_id int,
@@ -68,6 +83,11 @@ insert into delivery_details values
 (3,103,35,70,'2024-03-03'),
 (4,104,20,50,'2024-03-04'),
 (5,105,40,80,'2024-03-05');
+
+update delivery_details set delivery_time=45 where order_id=101;
+update delivery_details set delivery_fee=90 where order_id=105;
+
+select * from delivery_details;
 
 create table restaurants(
 restaurant_id int primary key,
@@ -86,6 +106,11 @@ insert into restaurants values
 (4,'urban bites','bangalore','7001110004','urban@outlook.com','08:30:00','open'),
 (5,'food zone','mysore','7001110005','zone@outlook.com','10:30:00','open');
 
+update restaurants set status='closed' where restaurant_id=1;
+update restaurants set opening_time='11:00:00' where restaurant_id=2;
+
+select * from restaurants;
+
 create table menu_items(
 item_id int primary key,
 restaurant_id int,
@@ -103,44 +128,7 @@ insert into menu_items values
 (104,4,'dosa','chef d',150,'2024-01-15'),
 (105,5,'fried rice','chef e',250,'2024-01-20');
 
-insert into users values
-(6,'deepa','9001110006','deepa@outlook.com','bangalore','active','2024-02-01'),
-(7,'rahul2','9001110007','rahul2@outlook.com','mysore','active','2024-02-05');
+update menu_items set price=600 where item_id=101;
+update menu_items set chef_name='chef z' where item_id=102;
 
-insert into orders values
-(106,6,'noodles',180,'2024-03-06',4.3),
-(107,7,'paneer tikka',350,'2024-03-07',4.7);
-
-insert into delivery_users values
-(6,'ramesh',27,'male','8001110006','bangalore','2024-02-01'),
-(7,'megha',22,'female','8001110007','mysore','2024-02-02');
-
-insert into delivery_details values
-(6,106,28,60,'2024-03-06'),
-(7,107,32,70,'2024-03-07');
-
-insert into restaurants values
-(6,'flavor town','bangalore','7001110006','flavor@outlook.com','09:15:00','open'),
-(7,'spicy kitchen','mysore','7001110007','spicy@outlook.com','10:15:00','open');
-
-insert into menu_items values
-(106,6,'noodles','chef f',180,'2024-02-01'),
-(107,7,'paneer tikka','chef g',350,'2024-02-05');
-
-delete from delivery_details where order_id = 107;
-delete from orders where order_id = 107;
-delete from users where user_id = 7;
-
-delete from menu_items where item_id = 107;
-delete from restaurants where restaurant_id = 7;
-
-delete from delivery_users where delivery_id = 7;
-rollback;
-
-commit;
-select * from users;
-select * from orders;
-select * from delivery_users;
-select * from delivery_details;
-select * from restaurants;
 select * from menu_items;
