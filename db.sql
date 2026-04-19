@@ -23,112 +23,97 @@ insert into employees values
 (9,'akash',32,60000,'it','mandya','2020-04-14'),
 (10,'nisha',29,42000,'finance','bangalore','2023-01-01');
 
--- > operator
+
 select * from employees where age > 30;
 select * from employees where salary > 50000;
 select name from employees where age > 25;
 select * from employees where emp_id > 5;
 select * from employees where join_date > '2021-01-01';
 
--- < operator
 select * from employees where age < 30;
 select * from employees where salary < 40000;
 select name from employees where emp_id < 5;
 select * from employees where join_date < '2021-01-01';
 select * from employees where age < 40;
 
--- <= operator
 select * from employees where age <= 30;
 select * from employees where salary <= 50000;
 select * from employees where emp_id <= 5;
 select * from employees where join_date <= '2022-01-01';
 select name from employees where age <= 35;
 
--- >= operator
 select * from employees where age >= 30;
 select * from employees where salary >= 60000;
 select * from employees where emp_id >= 5;
 select * from employees where join_date >= '2020-01-01';
 select name from employees where age >= 40;
 
--- != operator
 select * from employees where age != 30;
 select * from employees where department != 'hr';
 select * from employees where city != 'bangalore';
 select * from employees where salary != 50000;
 select name from employees where emp_id != 1;
 
--- and operator
 select * from employees where age > 25 and salary > 40000;
 select * from employees where department = 'it' and city = 'bangalore';
 select * from employees where age > 30 and age < 50;
 select * from employees where salary > 30000 and join_date > '2021-01-01';
 select name from employees where department = 'hr' and age > 28;
 
--- or operator
 select * from employees where age < 25 or salary > 70000;
 select * from employees where department = 'it' or department = 'hr';
 select * from employees where city = 'bangalore' or city = 'mysore';
 select * from employees where age > 40 or salary < 30000;
 select name from employees where emp_id = 1 or emp_id = 2;
 
--- not operator
 select * from employees where not age > 30;
 select * from employees where not department = 'hr';
 select * from employees where not city = 'bangalore';
 select * from employees where not salary > 50000;
 select * from employees where not age < 25;
 
--- in operator
 select * from employees where department in ('it','hr');
 select * from employees where city in ('bangalore','mysore');
 select * from employees where emp_id in (1,2,3);
 select * from employees where age in (25,30,35);
 select name from employees where salary in (30000,40000,50000);
 
--- not in operator
 select * from employees where department not in ('it','hr');
 select * from employees where city not in ('bangalore','mysore');
 select * from employees where emp_id not in (1,2,3);
 select * from employees where age not in (25,30);
 select name from employees where salary not in (30000,40000);
 
--- is null
 select * from employees where salary is null;
 select * from employees where department is null;
 select * from employees where city is null;
 select * from employees where join_date is null;
 select * from employees where age is null;
 
--- is not null
 select * from employees where salary is not null;
 select * from employees where department is not null;
 select * from employees where city is not null;
 select * from employees where join_date is not null;
 select * from employees where age is not null;
 
--- like
 select * from employees where name like 'a%';
 select * from employees where name like '%a';
 select * from employees where name like '%ar%';
 select * from employees where city like 'b%';
 select * from employees where department like '%t%';
 
--- not like
 select * from employees where name not like 'a%';
 select * from employees where name not like '%a';
 select * from employees where city not like 'b%';
 select * from employees where department not like '%t%';
 select * from employees where name not like '%ar%';
 
--- between
 select * from employees where age between 25 and 35;
 select * from employees where salary between 30000 and 70000;
 select * from employees where emp_id between 3 and 8;
 select * from employees where join_date between '2020-01-01' and '2023-01-01';
 select name from employees where age between 20 and 40;
 
--- not between
 select * from employees where age not between 25 and 35;
 select * from employees where salary not between 30000 and 70000;
 select * from employees where emp_id not between 3 and 8;
